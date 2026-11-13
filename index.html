@@ -46,6 +46,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500&amp;display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
@@ -156,6 +157,27 @@
     [style*="minmax(0,1fr) auto minmax(0,1fr)"]{grid-template-columns:minmax(0,1fr) !important;gap:6px !important;}
     [style*="minmax(0,1fr) auto minmax(0,1fr)"] span{text-align:left !important;}
   }
+
+/* --- phone field (intl-tel-input) themed for the dark form card --- */
+.iti{width:100%;--iti-border-color:rgba(243,237,225,.22);--iti-dropdown-bg:#241810;
+     --iti-hover-color:rgba(243,237,225,.08);--iti-dialcode-color:rgba(243,237,225,.55);
+     --iti-text-gray:rgba(243,237,225,.55);--iti-arrow-color:rgba(243,237,225,.55)}
+.iti__tel-input,.iti input[type=tel]{width:100%;background:transparent;border:none;
+     border-bottom:1px solid rgba(243,237,225,.22);padding:11px 2px;font-size:16px;
+     outline:none;color:#F3EDE1;font-family:inherit}
+.iti__tel-input::placeholder{color:rgba(243,237,225,.32)}
+.iti__country-container{border-bottom:1px solid rgba(243,237,225,.22)}
+.iti__selected-country{background:transparent;border-radius:0}
+.iti__selected-country:hover,.iti__selected-country-primary:hover{background:rgba(243,237,225,.06)}
+.iti__selected-dial-code{color:rgba(243,237,225,.75);font-size:16px}
+.iti__dropdown-content{background:#241810;border:1px solid rgba(243,237,225,.14);
+     border-radius:12px;color:#F3EDE1}
+.iti__search-input{background:transparent;color:#F3EDE1;border:none;
+     border-bottom:1px solid rgba(243,237,225,.14);padding:10px 12px;font-family:inherit}
+.iti__search-input::placeholder{color:rgba(243,237,225,.35)}
+.iti__country{color:#F3EDE1}
+.iti__country.iti__highlight{background:rgba(243,237,225,.10)}
+.iti__dial-code{color:rgba(243,237,225,.5)}
 </style>
 </head>
 <body>
@@ -516,6 +538,11 @@
         <label style="font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,237,225,.5); font-weight: 600">Email</label>
         <input type="email" id="cf-email" name="email" autocomplete="email" required placeholder="you@company.com" style="background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,.22);padding:11px 2px;font-size:16px;outline:none">
       </div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <label style="font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,237,225,.5); font-weight: 600">Phone <span style="text-transform:none;letter-spacing:0;opacity:.6">(optional)</span></label>
+        <input type="tel" id="cf-phone" name="phone" autocomplete="tel" placeholder="532 123 45 67">
+        <small id="cf-phone-err" style="display:none;color:#F0A98F;font-size:12.5px">That number doesn't look right for the selected country.</small>
+      </div>
       <div style="display: flex; flex-direction: column; gap: 9px; position: relative">
         <label style="font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,237,225,.5); font-weight: 600">The problem worth solving</label><textarea rows="3" id="cf-message" name="message" placeholder="Tell us what you're chasing..." style="background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,.22);padding:11px 2px;font-size:16px;outline:none;resize:none"></textarea>
         
@@ -718,24 +745,44 @@
         var name = (document.getElementById('cf-name') || {}).value || '';
         var email = (document.getElementById('cf-email') || {}).value || '';
         var message = (document.getElementById('cf-message') || {}).value || '';
+        var phone = '';
+        if (window.__iti) {
+          var raw = (document.getElementById('cf-phone') || {}).value || '';
+          if (raw.trim()) {
+            // getNumber() returns E.164 (+90532...) and applies each country's own
+            // trunk-prefix rules -- it drops the national 0 where that is correct,
+            // and keeps it where it is part of the number (e.g. Italian landlines).
+            phone = window.__iti.getNumber() || '';
+            if (!phone) { phone = '+' + window.__iti.getSelectedCountryData().dialCode + raw.replace(/\D/g,'').replace(/^0+/,''); }
+          }
+        }
         if (!name.trim() || !email.trim()) {
           status.style.color = 'rgba(243,237,225,.72)';
           status.textContent = 'Please add your name and email.';
           return;
         }
         var original = btn ? btn.innerHTML : '';
+        var originalBg = btn ? btn.style.background : '';
         if (btn) { btn.disabled = true; btn.style.opacity = '.75'; btn.textContent = 'Sending…'; }
         status.textContent = '';
         fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name: name.trim(), email: email.trim(), message: message.trim() })
+          body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone, message: message.trim() })
         }).then(function (r) {
           if (!r.ok) throw new Error('status ' + r.status);
           if (btn) { btn.textContent = 'Thanks, we’ll be in touch ✓'; btn.style.background = '#C3D18A'; btn.style.opacity = '1'; }
           status.style.color = '#C3D866';
           status.textContent = 'Message sent. We’ll get back to you soon.';
           form.reset();
+          if (btn) {
+            setTimeout(function () {
+              btn.disabled = false;
+              btn.innerHTML = original;
+              btn.style.background = originalBg;
+              btn.style.opacity = '1';
+            }, 5000);
+          }
         }).catch(function () {
           if (btn) { btn.disabled = false; btn.style.opacity = '1'; btn.innerHTML = original; }
           status.style.color = '#F0A98F';
@@ -749,5 +796,30 @@
 })();
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('cf-phone');
+  if (!el || !window.intlTelInput) return;
+  window.__iti = window.intlTelInput(el, {
+    initialCountry: 'tr',
+    countryOrder: ['tr', 'ae', 'gb', 'us'],
+    separateDialCode: true,
+    countrySearch: true,
+    nationalMode: true,
+    loadUtils: function () {
+      return import('https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/utils.js');
+    }
+  });
+  var err = document.getElementById('cf-phone-err');
+  el.addEventListener('blur', function () {
+    if (!err) return;
+    var filled = el.value.trim().length > 0;
+    var ok = !filled || !window.__iti.isValidNumber || window.__iti.isValidNumber();
+    err.style.display = ok ? 'none' : 'block';
+  });
+  el.addEventListener('input', function () { if (err) err.style.display = 'none'; });
+})();
+</script>
 </body>
 </html>
