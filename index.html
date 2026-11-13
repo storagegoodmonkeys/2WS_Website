@@ -773,7 +773,7 @@
           if (!r.ok) throw new Error('status ' + r.status);
           if (btn) { btn.textContent = 'Thanks, we’ll be in touch ✓'; btn.style.background = '#C3D18A'; btn.style.opacity = '1'; }
           status.style.color = '#C3D866';
-          status.textContent = 'Message sent. We’ll get back to you soon.';
+          status.textContent = 'Message sent. We’ll get back to you soon. Thank you.';
           form.reset();
           if (btn) {
             setTimeout(function () {
@@ -781,6 +781,7 @@
               btn.innerHTML = original;
               btn.style.background = originalBg;
               btn.style.opacity = '1';
+              status.textContent = '';
             }, 5000);
           }
         }).catch(function () {
