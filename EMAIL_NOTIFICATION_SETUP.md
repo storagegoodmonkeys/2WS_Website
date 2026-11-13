@@ -1,96 +1,49 @@
-# Email Notification Setup Guide
+# Contact form — email notifications
 
-This guide will help you set up automatic email notifications when someone submits the contact form.
+The contact form on `index.html` posts to `/api/contact` (a Vercel function),
+which inserts a row into the Supabase table `contact_messages`.
+Saving the message and emailing a notification are two SEPARATE layers.
+Get the save working first.
 
-## Step 1: Add Resend API Key to Supabase
+## Layer 1 — saving the message (required)
 
-1. Go to your Supabase Dashboard: https://supabase.com/dashboard
-2. Select your project
-3. Go to **Settings** → **Edge Functions**
-4. Click **Add new secret**
-5. Add:
-   - Name: `RESEND_API_KEY`
-   - Value: `<YOUR_RESEND_API_KEY>`
+1. Create a Supabase project under a **company-owned** account.
+2. SQL Editor → run `supabase/new-project-setup.sql` once.
+3. Settings → API → copy the **Project URL** and the **anon public** key.
+4. Edit `api/contact.js` lines 3–4 with those two values. Commit; Vercel redeploys.
+5. Submit the form on the live site and confirm a row appears in
+   Table Editor → `contact_messages`.
 
-## Step 2: Verify Your Domain in Resend (Important!)
+Stop here until that works.
 
-For emails to work, you need to verify your domain in Resend:
+## Layer 2 — the notification email (optional)
 
-1. Go to https://resend.com/domains
-2. Click **Add Domain**
-3. Enter: `2wstudio.com`
-4. Add the DNS records they provide to your domain
-5. Wait for verification (usually 5-10 minutes)
+Requires a Resend account you control.
 
-**OR** for testing, use Resend's default sender:
-- Change the "from" email in the function to: `onboarding@resend.dev`
-
-## Step 3: Deploy the Edge Function
-
-Run this command in your terminal:
-
-```bash
-cd /Users/tayyab/.cursor/worktrees/flick/nre/landing-page
-supabase login
-supabase link --project-ref kjhhwrvduqxprweqxhbo
-supabase functions deploy send-contact-email
-```
-
-## Step 4: Create Database Trigger
-
-Go to Supabase Dashboard → SQL Editor and run this:
-
-```sql
--- Create the trigger function
-CREATE OR REPLACE FUNCTION notify_new_contact()
-RETURNS TRIGGER AS $$
-BEGIN
-  PERFORM
-    net.http_post(
-      url := 'https://kjhhwrvduqxprweqxhbo.supabase.co/functions/v1/send-contact-email',
-      headers := jsonb_build_object(
-        'Content-Type', 'application/json',
-        'Authorization', 'Bearer ' || current_setting('app.settings.service_role_key', true)
-      ),
-      body := jsonb_build_object('record', row_to_json(NEW))
-    );
-  RETURN NEW;
-END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
-
--- Create the trigger
-DROP TRIGGER IF EXISTS on_new_contact ON public.waitlist;
-CREATE TRIGGER on_new_contact
-  AFTER INSERT ON public.waitlist
-  FOR EACH ROW
-  EXECUTE FUNCTION notify_new_contact();
-```
-
-## Alternative: Simpler Webhook Approach
-
-If the above is complex, use Supabase Database Webhooks:
-
-1. Go to **Database** → **Webhooks**
-2. Click **Create a new webhook**
-3. Settings:
-   - Name: `send-contact-email`
-   - Table: `waitlist`
-   - Events: `INSERT`
-   - Type: `Supabase Edge Function`
-   - Function: `send-contact-email`
-4. Click **Create webhook**
-
-## Testing
-
-1. Submit a test contact form on your website
-2. Check your email at info@2wstudio.com
-3. If no email, check:
-   - Supabase Edge Function logs
-   - Resend dashboard for delivery status
+1. **Resend → Domains → Add Domain** → `2wstudio.com`. Add the three DNS records
+   it gives you in Cloudflare, all **DNS only**:
+   - MX on name `send` (NOT the root — the root MX belongs to Google Workspace)
+   - TXT on name `send`  → `v=spf1 include:amazonses.com ~all`
+   - TXT on name `resend._domainkey` → the key Resend shows
+   Do NOT enable Resend's inbound/receiving option: that would conflict with Workspace mail.
+2. **Supabase → Settings → Edge Functions → Add new secret**
+   Name `RESEND_API_KEY`, value = your key. Never put the key in a file.
+3. **Supabase → Edge Functions** → deploy `send-contact-email`
+   (the Dashboard has a browser editor; the CLI is not required).
+   It sends from `noreply@2wstudio.com` to `info@2wstudio.com`.
+4. **Supabase → Database → Webhooks → Create a new webhook**
+   - Table: **`contact_messages`**  ← the table the form actually writes to
+   - Events: INSERT
+   - Type: Supabase Edge Function → `send-contact-email`
 
 ## Troubleshooting
 
-- **Email not sending**: Check if domain is verified in Resend
-- **Function error**: Check Edge Function logs in Supabase Dashboard
-- **No trigger firing**: Verify the webhook/trigger is set up correctly
+Check all three, in order — each failure looks identical from outside:
 
+| Where | What it tells you |
+|---|---|
+| Supabase → Table Editor | Did the row save? (Vercel function + database) |
+| Supabase → Edge Functions → Logs | Did the function fire, and did it error? |
+| Resend → Emails | Did Resend accept it, and was it delivered? |
+
+Most common cause of silence: the sending domain is not verified in Resend.
