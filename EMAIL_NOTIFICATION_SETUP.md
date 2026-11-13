@@ -18,7 +18,7 @@ For emails to work, you need to verify your domain in Resend:
 
 1. Go to https://resend.com/domains
 2. Click **Add Domain**
-3. Enter: `goodmonkeys.com`
+3. Enter: `2wstudio.com`
 4. Add the DNS records they provide to your domain
 5. Wait for verification (usually 5-10 minutes)
 
@@ -83,7 +83,7 @@ If the above is complex, use Supabase Database Webhooks:
 ## Testing
 
 1. Submit a test contact form on your website
-2. Check your email at info@goodmonkeys.com
+2. Check your email at info@2wstudio.com
 3. If no email, check:
    - Supabase Edge Function logs
    - Resend dashboard for delivery status

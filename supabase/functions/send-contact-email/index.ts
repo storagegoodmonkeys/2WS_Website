@@ -33,8 +33,8 @@ serve(async (req) => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Good Monkeys <noreply@goodmonkeys.com>",
-        to: ["info@goodmonkeys.com"],
+        from: "2W Studio <noreply@2wstudio.com>",
+        to: ["info@2wstudio.com"],
         subject: `New Contact Form Submission from ${name}`,
         html: `
           <h2>New Contact Form Submission</h2>
@@ -44,7 +44,7 @@ serve(async (req) => {
           <p><strong>Message:</strong></p>
           <p>${message || "No message provided"}</p>
           <hr>
-          <p style="color: #888; font-size: 12px;">This email was sent from the Good Monkeys contact form.</p>
+          <p style="color: #888; font-size: 12px;">This email was sent from the 2W Studio contact form.</p>
         `,
       }),
     });

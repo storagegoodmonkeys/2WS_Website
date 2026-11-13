@@ -1,27 +1,40 @@
-# 2W Studio — site (rebranded from the Flick/Good Monkeys landing site)
+# 2W Studio — website
 
-Static site + serverless functions. Rebranded to **2W Studio** on 2026-11-13.
-Legal entity is unchanged: footers read "2W Studio — a brand of Good Monkeys L.L.C-FZ".
+Static site + serverless functions. No build step, no package.json.
+Deployed on Vercel; DNS on Cloudflare.
 
-## What this is
-- `index.html` / `about.html` — marketing pages (video background, cream/ink/·#ff6b35 accent)
-- `verify.html` — the **Flick app** email-verification deep-link page (`flickapp://auth`). App infrastructure — see WARNING below.
+## Structure
+- `index.html` / `about.html` — marketing pages
+- `verify.html` — the **Flick app** email-verification deep-link page (`flickapp://auth`). App infrastructure, not marketing — see WARNING below.
 - `styles.css`, `script.js`, `mobile-menu-update.css` — front-end
-- `api/*.js` — Vercel serverless functions (waitlist + contact), talk to Supabase
-- `supabase/` — edge function + SQL for the contact-email flow (Resend)
-- `assets/` — video, images, and the new 2W Studio SVG marks
+- `api/*.js` — Vercel serverless functions (waitlist + contact) → Supabase
+- `supabase/` — edge function + SQL for the contact-email flow (via Resend)
+- `assets/` — video, images, 2W Studio SVG marks
 
 ## Deploy
-Static host (Cloudflare Pages / Netlify / Vercel). No build step, no package.json.
-Cloudflare Pages: Workers & Pages → Create → Pages → upload this folder → add custom domain `www.2wstudio.com`.
-Note: `api/*.js` are Vercel serverless functions — they run on Vercel, NOT on Cloudflare Pages static hosting. If you move off Vercel, the waitlist/contact endpoints need porting (e.g. to a Cloudflare Worker).
+Vercel: import the repo, Framework Preset **Other**, leave Build Command / Output Directory empty.
+`api/*.js` are Vercel functions — they do NOT run on Cloudflare Pages static hosting.
+No environment variables are required by the site itself.
 
-## What still points at the old backend / brand — DECIDE BEFORE LAUNCH
-- The Supabase projects referenced in `api/*.js` and `verify.html` are the ORIGINAL ones. The keys are public `anon` keys (safe to ship) but the projects are still the old account's. Confirm they're yours to keep using.
-- `assets/og-image.jpg` is the old Good-Monkeys-branded social preview image — still shows the old brand. Replace it.
-- Image filenames under `assets/images/` still read `good-monkeys-*.jpg` (not user-visible; left as-is).
-- Social links now point to instagram.com/2wstudio and x.com/2wstudio — create those or change them.
-- The 2W Studio wordmark/monogram in `assets/*.svg` are typographic STAND-INS. Replace with real logo artwork when you have it.
+## IMPORTANT — the email function is deployed separately
+`supabase/functions/send-contact-email/index.ts` runs on **Supabase**, not Vercel.
+Editing it in this repo changes nothing until you redeploy it to Supabase.
+It reads `RESEND_API_KEY` from Supabase's secret store — never put the key in a file.
+
+## IMPORTANT — Resend domain verification
+The contact notification now sends from `noreply@2wstudio.com` to `info@2wstudio.com`.
+Resend will refuse to send until **2wstudio.com is verified in Resend** and its DNS
+records are added in Cloudflare. Until that is done, submissions still save to the
+database but no notification email is delivered.
 
 ## WARNING — verify.html is live app plumbing
-`verify.html` handles Flick's email confirmation (`flickapp://auth?...`). If the Flick app sends verification emails whose links point at goodmonkeys.com/verify.html, changing the domain WILL break confirmation for real users unless the app's email templates / Supabase redirect URLs are updated to the new domain in lockstep. Do not move this page's domain casually.
+This page handles Flick's email confirmation. If the app's verification emails link to
+the legacy domain (goodmonkeys.com/verify.html), those links keep working only while
+that domain is under your control. Update the Flick app's Supabase redirect URL and
+email templates to the 2wstudio.com address before the legacy domain changes hands.
+
+## Still to replace
+- `assets/og-image.jpg` — social preview image still carries the old branding
+- `assets/*.svg` — the 2W Studio wordmark/monogram are typographic STAND-INS, not final artwork
+- `assets/images/*.jpg` — some filenames retain legacy naming (not user-visible)
+- Social links point to instagram.com/2wstudio and x.com/2wstudio — create or change them
