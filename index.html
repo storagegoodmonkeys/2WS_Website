@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2W Studio - Venture Studio</title>
+<meta name="description" content="2W Studio is a Dubai-based venture studio building AI products, mobile apps for iOS and Android, immersive science experiences and a global trading network.">
+<meta name="keywords" content="venture studio Dubai, mobile app development, iOS app development, Android app development, AI product studio, artificial intelligence, science experiences, general trading, digital product studio">
+<meta name="author" content="2W Studio">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#170F09">
+<link rel="canonical" href="https://www.2wstudio.com/">
+<link rel="icon" href="assets/favicon_green.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon_green.svg">
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="2W Studio">
+<meta property="og:title" content="2W Studio - Venture Studio">
+<meta property="og:description" content="A Dubai venture studio building AI products, mobile apps, immersive science experiences and a global trading network.">
+<meta property="og:url" content="https://www.2wstudio.com/">
+<meta property="og:image" content="https://www.2wstudio.com/assets/og-image.jpg">
+<meta property="og:image:width" content="2881">
+<meta property="og:image:height" content="1621">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2W Studio - Venture Studio">
+<meta name="twitter:description" content="A Dubai venture studio building AI products, mobile apps, immersive science experiences and a global trading network.">
+<meta name="twitter:image" content="https://www.2wstudio.com/assets/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "2W Studio",
+  "alternateName": "2W Studio",
+  "url": "https://www.2wstudio.com/",
+  "logo": "https://www.2wstudio.com/assets/logo-primary-cream.svg",
+  "image": "https://www.2wstudio.com/assets/og-image.jpg",
+  "description": "2W Studio is a Dubai-based venture studio building AI products, mobile apps for iOS and Android, immersive science experiences and a global trading network.",
+  "email": "info@2wstudio.com",
+  "foundingDate": "2025",
+  "slogan": "Broad minds, visionary work.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressRegion": "Meydan FZ", "addressCountry": "AE" },
+  "knowsAbout": ["Mobile app development", "iOS app development", "Android app development", "Artificial intelligence", "Immersive science experiences", "General trading", "Digital product design"],
+  "sameAs": ["https://www.instagram.com/2wstudio", "https://x.com/2wstudio"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:#170F09;color:#F3EDE1;font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:#F2D98A;color:#170F09}
+  a{color:#F2D98A;text-decoration:none;transition:color .35s ease}
+  a:hover{color:#EFE6D3}
+  input,textarea,button{font-family:inherit;color:inherit}
+  /* Readability refinement: relax body-copy line-height everywhere except the
+     hero (whose large intro keeps its tighter display spacing). */
+  section:not(#top) p{line-height:1.6 !important}
+  #contact p,#projects p{line-height:1.55 !important}
+  /* Contact form sits on a dark card: keep typed text, caret and placeholder
+     readable, and stop the browser's autofill from forcing a light box. */
+  #contact input,#contact textarea{color:#F3EDE1;caret-color:#C3D866}
+  #contact input::placeholder,#contact textarea::placeholder{color:rgba(243,237,225,.4)}
+  #contact input:-webkit-autofill,
+  #contact input:-webkit-autofill:hover,
+  #contact input:-webkit-autofill:focus,
+  #contact textarea:-webkit-autofill{
+    -webkit-text-fill-color:#F3EDE1;
+    caret-color:#C3D866;
+    -webkit-box-shadow:0 0 0 1000px #1B120B inset;
+    box-shadow:0 0 0 1000px #1B120B inset;
+    transition:background-color 9999s ease-in-out 0s;
+  }
+  @keyframes gm-rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+  @keyframes gm-float-a{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6%,-5%) scale(1.08)}}
+  @keyframes gm-float-b{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-7%,6%) scale(1.12)}}
+  @keyframes gm-float-c{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(4%,7%) scale(1.06)}}
+  @keyframes gm-drift{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+  @keyframes gm-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---- Science Experiences: scattered photo pile (thrown-on-a-table) ---- */
+  .gm-photo{position:absolute;top:50%;left:50%;margin:0;overflow:hidden;border-radius:7px;background:#0e0a06;
+            box-shadow:0 2px 4px rgba(20,12,4,.30),0 26px 46px -20px rgba(20,12,4,.55);cursor:pointer;
+            transition:transform .7s cubic-bezier(.2,.85,.25,1),opacity .5s ease,filter .5s ease,box-shadow .5s ease;
+            will-change:transform,opacity}
+  .gm-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .gm-photo figcaption{position:absolute;right:0;bottom:0;left:0;pointer-events:none;
+            padding:38px 13px 11px 40px;text-align:right;
+            font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(12px,1.15vw,14px);
+            letter-spacing:.015em;color:#F6F0E4;text-shadow:0 1px 4px rgba(0,0,0,.55);
+            background:linear-gradient(302deg,rgba(9,6,3,.74),rgba(9,6,3,.30) 42%,transparent 74%)}
+  @media (prefers-reduced-motion: reduce){ .gm-photo{transition:none !important} }
+
+  /* Projects section: drop the fixed height artifact so it sizes to content,
+     and tighten the bottom padding so the torn lila "How We Work" section
+     lands right below the chips (on the dark ground), never over the card. */
+  #projects{height:auto !important;display:block !important;padding-bottom:clamp(20px,3vw,42px) !important}
+
+  /* Colour-grade the mixed source photos into one warm, editorial set so the
+     gallery reads as a single brand world rather than random stock. */
+  img[src*="assets/images/"]{filter:saturate(.82) contrast(1.05) brightness(.98) sepia(.12)}
+  /* Centre the "How We Work" content vertically inside the torn lila shape. */
+  #approach>div{display:flex;flex-direction:column;justify-content:center;align-items:center}
+  /* Mobile: AI + Adventure rows lead with the text, then the photo (desktop
+     keeps the photo-first order via the inline order:-1). */
+  @media (max-width:900px){ [style*="order:-1"]{order:1 !important} }
+
+  /* Fixed looping background video behind Hero + Studio. It sits at the very
+     back (negative z-index) and shows only through those transparent sections;
+     the opaque marquee band and everything from Ventures down cover it. The
+     dark-brown scrim keeps all foreground content readable over the footage. */
+  .gm-bgvideo{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+              pointer-events:none;background:#170F09}
+  .gm-bgvideo-scrim{position:fixed;inset:0;z-index:-1;pointer-events:none;
+              background:linear-gradient(180deg,rgba(17,10,5,.88),rgba(20,13,7,.76) 42%,rgba(17,10,5,.84))}
+
+  /* ============================================================
+     Responsive layer — the imported design shipped desktop-only
+     (fixed multi-column grids + two fixed-height sections). These
+     rules override the inline styles for tablet and phone widths.
+     ============================================================ */
+  /* Media (incl. the fillable image slots) must be allowed to shrink,
+     otherwise a single-column track grows to the image's intrinsic width. */
+  img{max-width:100%;}
+  image-slot{max-width:100%;}
+  @media (max-width: 900px){
+    /* Two-column feature layouts collapse to one column. Use minmax(0,1fr) —
+       a bare 1fr keeps an `auto` minimum and blows the track out to the
+       widest child (e.g. a photo's natural width). */
+    [style*="minmax(0,1fr) minmax(0,1.35fr)"]{grid-template-columns:minmax(0,1fr) !important;}
+    [style*="minmax(0,1fr) minmax(0,1fr)"]{grid-template-columns:minmax(0,1fr) !important;}
+    [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:minmax(0,1fr) !important;}
+    /* Class hooks for the grids that carry data-reveal — the reveal script
+       rewrites their inline style, which normalizes it and defeats the
+       [style*=] match above, so these need a real class. */
+    .gm-r-2col{grid-template-columns:minmax(0,1fr) !important;}
+    /* Four-up stat / value grids become two-up */
+    [style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+    .gm-r-4col{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+    /* Fixed-height sections become fluid so stacked content isn't clipped */
+    #projects{height:auto !important;display:block !important;}
+    #approach [style*="height: 585px"]{height:auto !important;min-height:520px;}
+  }
+  @media (max-width: 640px){
+    /* Stat / value grids go single-column */
+    [style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:minmax(0,1fr) !important;}
+    .gm-r-4col{grid-template-columns:minmax(0,1fr) !important;}
+    /* Nav keeps the logo + primary CTA; section links hide on phones */
+    nav a[href="#studio"], nav a[href="#ventures"],
+    nav a[href="#projects"], nav a[href="#approach"]{display:none !important;}
+    /* Hero headline shrinks to fit narrow screens */
+    #top h1{font-size:clamp(42px,13vw,168px) !important;}
+    /* Manifesto "some / we" rows stack and left-align */
+    [style*="minmax(0,1fr) auto minmax(0,1fr)"]{grid-template-columns:minmax(0,1fr) !important;gap:6px !important;}
+    [style*="minmax(0,1fr) auto minmax(0,1fr)"] span{text-align:left !important;}
+  }
+</style>
+</head>
+<body>
+<div style="position:relative;width:100%;overflow:hidden">
+
+<!-- Fixed looping background video behind Hero + Studio -->
+<video class="gm-bgvideo" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+  <source src="assets/background-loop.mp4" type="video/mp4">
+</video>
+<div class="gm-bgvideo-scrim" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav data-nav="" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(24px,5vw,72px);transition:background .5s ease,border-color .5s ease,padding .5s ease;border-bottom:1px solid transparent">
+  <a href="#top" style="display:flex;align-items:center;gap:14px;color:#F3EDE1">
+    <img src="assets/logo-primary-cream.svg" alt="2W Studio" style="height:26px;width:auto;display:block" data-comment-anchor="eae1ef72c8-img">
+    
+  </a>
+  <div style="display:flex;align-items:center;gap:clamp(18px,2.4vw,40px);font-size:13.5px;letter-spacing:.01em">
+    <a href="#studio" style="color:rgba(243,237,225,.72)">Studio</a>
+    <a href="#ventures" style="color:rgba(243,237,225,.72)">Ventures</a>
+    <a href="#projects" style="color:rgba(243,237,225,.72)">Projects</a>
+    <a href="#approach" style="color:rgba(243,237,225,.72)">Approach</a>
+    <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid rgba(243,237,225,.28);border-radius:100px;color:#F3EDE1">Get in touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="top" style="position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:clamp(120px,15vh,170px) clamp(24px,6vw,80px) clamp(70px,9vh,110px);background:transparent">
+  <div aria-hidden="true" style="position:absolute;bottom:-10%;right:-6%;width:52vw;height:52vw;max-width:680px;max-height:680px;border-radius:50%;background:radial-gradient(circle,rgba(195,209,138,.22),transparent 62%);filter:blur(72px);animation:gm-float-a 24s ease-in-out infinite;pointer-events:none"></div>
+  <div aria-hidden="true" style="position:absolute;top:0%;left:-4%;width:38vw;height:38vw;max-width:520px;max-height:520px;border-radius:50%;background:radial-gradient(circle,rgba(242,217,138,.14),transparent 62%);filter:blur(70px);animation:gm-float-b 30s ease-in-out infinite;pointer-events:none"></div>
+
+  <div style="position:relative;width:100%;max-width:1240px;margin:0 auto">
+    <p style="max-width: 46ch; font-family: 'Space Grotesk',sans-serif; font-size: clamp(17px,1.7vw,22px); line-height: 1.3; color: rgba(243,237,225,.64); opacity: 0; animation: gm-rise 1.1s cubic-bezier(.2,.7,.2,1) .3s forwards">Our strongest tool has always been our vision. We bring broad minds to ambitious ventures, intelligent products and immersive experiences, turning curiosity into work that genuinely&nbsp;matters.</p>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(58px,11vw,168px);line-height:.82;letter-spacing:-.045em;margin-top:clamp(26px,3vw,40px);color:#F3EDE1;opacity:0;animation:gm-rise 1.1s cubic-bezier(.2,.7,.2,1) .45s forwards;text-wrap:balance">Broad minds,<br><span style="background:linear-gradient(100deg,#C3D866,#F2D98A);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent">visionary work.</span></h1>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:clamp(34px,4vw,52px);opacity:0;animation:gm-rise 1.1s cubic-bezier(.2,.7,.2,1) .6s forwards">
+      <a href="#ventures" style="display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:100px;background:#C3D866;color:#1E2A08;font-weight:600;font-size:15px">Explore Our World
+        <span style="display:inline-block;transform:translateY(1px)">→</span></a>
+      <a href="#contact" style="display:inline-flex;align-items:center;padding:16px 30px;border-radius:100px;border:1px solid rgba(243,237,225,.3);color:#F3EDE1;font-weight:500;font-size:15px">Start a conversation</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE / TAGLINE STRIP -->
+<div style="padding: 26px 0; overflow: hidden; white-space: nowrap; background-color: #C3D866">
+  <div style="display:inline-flex;flex-wrap:nowrap;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(22px,3vw,40px);letter-spacing:-.01em;color:#1E2A08;animation:gm-marquee 32s linear infinite;will-change:transform">
+    <span style="flex:none;padding-right:0">Curiosity Creates Opportunities &nbsp;•&nbsp; Ideas Deserve Action &nbsp;•&nbsp; Positive Thinking &nbsp;•&nbsp; Meaningful Work &nbsp;•&nbsp; Shape the Jungle &nbsp;•&nbsp; Stay Curious &nbsp;•&nbsp; Think Beyond Industries &nbsp;•&nbsp; Nurture Relationships &nbsp;•&nbsp; Explore Fearlessly &nbsp;•&nbsp; Turn Vision into Reality &nbsp;•&nbsp; Never Stop Exploring &nbsp;•&nbsp; </span>
+    <span aria-hidden="true" style="flex:none">Curiosity Creates Opportunities &nbsp;•&nbsp; Ideas Deserve Action &nbsp;•&nbsp; Positive Thinking &nbsp;•&nbsp; Meaningful Work &nbsp;•&nbsp; Shape the Jungle &nbsp;•&nbsp; Stay Curious &nbsp;•&nbsp; Think Beyond Industries &nbsp;•&nbsp; Nurture Relationships &nbsp;•&nbsp; Explore Fearlessly &nbsp;•&nbsp; Turn Vision into Reality &nbsp;•&nbsp; Never Stop Exploring &nbsp;•&nbsp; </span>
+  </div>
+</div>
+
+<!-- STUDIO -->
+<section id="studio" style="max-width:1240px;margin:0 auto;padding:clamp(96px,13vw,180px) clamp(24px,6vw,80px)">
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:clamp(40px,7vw,110px);align-items:start">
+    <div data-reveal="" style="background: linear-gradient(160deg, #CFC5EA, #BAAFDD); border-radius: 20px; padding: clamp(30px,3vw,42px); align-self: stretch; display: flex; flex-direction: column; justify-content: space-between; gap: 40px">
+      <div style="display:flex;align-items:center;gap:14px;color:rgba(23,15,9,.6);font-size:12.5px;letter-spacing:.26em;text-transform:uppercase">
+        <span style="width:26px;height:1px;background:rgba(23,15,9,.4)"></span>01 · The Studio</div>
+      <div style="aspect-ratio:4/3;overflow:hidden;border-radius:14px"><img src="assets/images/good-monkeys-studio-research-team.jpg" alt="2W Studio studio team mapping ideas and connections on a research wall" title="2W Studio stüdyo ekibi — fikir ve araştırma panosu" width="920" height="768" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;transform:scale(1.16);display:block"></div><p style="font-family: 'Space Grotesk',sans-serif; font-weight: 500; font-size: clamp(19px,1.9vw,26px); line-height: 1.2; letter-spacing: -.01em; color: #170F09">We don't tie ourselves to a single industry. We follow the problems that genuinely deserve to be solved, and the people around us are as much a part of the work as the ideas&nbsp;themselves.</p>
+      
+    </div>
+    <div data-reveal="">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.2vw,58px);line-height:1.06;letter-spacing:-.025em;text-wrap:balance">We are entrepreneurs, designers, makers and problem-solvers — a small team of genuinely curious minds.</h2>
+      <div style="margin-top:32px;display:flex;flex-direction:column;gap:20px;max-width:62ch;font-size:clamp(16px,1.5vw,19px);line-height:1.7;color:rgba(243,237,225,.7)">
+        <p>2W Studio is a new-generation venture studio based in Dubai. We started as a handful of people who kept noticing the same thing: the most interesting opportunities rarely respect the borders between industries. So rather than commit to a single field, we chose to follow our curiosity wherever it happened to&nbsp;lead.</p>
+        <p>Today that curiosity takes many shapes — immersive science experiences, mobile apps for iOS and Android, applied artificial intelligence, a global trading network and the occasional adventure. As different as they look from the outside, every one of them begins in the same place and is held to the same standards of craft and&nbsp;care.</p>
+      </div>
+    </div>
+  </div>
+
+  <div data-reveal="" class="gm-r-4col" style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,44px);margin-top:clamp(64px,8vw,110px)">
+      <div style="border-top:1px solid rgba(243,237,225,.14);padding-top:20px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(34px,4vw,56px);line-height:1;letter-spacing:-.03em;color:#F3EDE1">2025</div>
+        <div style="margin-top:12px;font-size:13.5px;letter-spacing:.03em;color:rgba(243,237,225,.55)">Founded in Dubai</div>
+      </div>
+      <div style="border-top:1px solid rgba(243,237,225,.14);padding-top:20px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(34px,4vw,56px);line-height:1;letter-spacing:-.03em;color:#F3EDE1">05</div>
+        <div style="margin-top:12px;font-size:13.5px;letter-spacing:.03em;color:rgba(243,237,225,.55)">Disciplines under one roof</div>
+      </div>
+      <div style="border-top:1px solid rgba(243,237,225,.14);padding-top:20px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(34px,4vw,56px);line-height:1;letter-spacing:-.03em;color:#F3EDE1">10+</div>
+        <div style="margin-top:12px;font-size:13.5px;letter-spacing:.03em;color:rgba(243,237,225,.55)">Ideas in motion</div>
+      </div>
+      <div style="border-top:1px solid rgba(243,237,225,.14);padding-top:20px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(34px,4vw,56px);line-height:1;letter-spacing:-.03em;color:#F3EDE1">Global</div>
+        <div style="margin-top:12px;font-size:13.5px;letter-spacing:.03em;color:rgba(243,237,225,.55)">Network across borders</div>
+      </div>
+  </div>
+
+  <div data-reveal="" style="margin-top:clamp(64px,8vw,110px)">
+    <div style="display:flex;align-items:center;gap:14px;color:rgba(243,237,225,.5);font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:30px">
+      <span style="width:26px;height:1px;background:rgba(243,237,225,.4)"></span>What guides us</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,24px)">
+        <div style="border:1px solid rgba(243,237,225,.12);border-radius:16px;padding:26px 24px;background:#1B120B">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(18px,1.9vw,22px);letter-spacing:-.01em;color:#F3EDE1">Curiosity</div>
+          <p style="margin-top: 12px; font-size: 14.5px; line-height: 1.4; color: rgba(243,237,225,.62)">Everything we take on begins with a question we genuinely want to&nbsp;answer.</p>
+        </div>
+        <div style="border:1px solid rgba(243,237,225,.12);border-radius:16px;padding:26px 24px;background:#1B120B">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(18px,1.9vw,22px);letter-spacing:-.01em;color:#F3EDE1">Craftsmanship</div>
+          <p style="margin-top: 12px; font-size: 14.5px; line-height: 1.4; color: rgba(243,237,225,.62)">We care about the details, because in the end the details are the&nbsp;work.</p>
+        </div>
+        <div style="border:1px solid rgba(243,237,225,.12);border-radius:16px;padding:26px 24px;background:#1B120B">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(18px,1.9vw,22px);letter-spacing:-.01em;color:#F3EDE1">Optimism</div>
+          <p style="margin-top: 12px; font-size: 14.5px; line-height: 1.4; color: rgba(243,237,225,.62)">We treat every so-called impossible request as a problem nobody has framed well&nbsp;yet.</p>
+        </div>
+        <div style="border:1px solid rgba(243,237,225,.12);border-radius:16px;padding:26px 24px;background:#1B120B">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(18px,1.9vw,22px);letter-spacing:-.01em;color:#F3EDE1">Execution</div>
+          <p style="margin-top: 12px; font-size: 14.5px; line-height: 1.4; color: rgba(243,237,225,.62)">Ideas are easy to have, so we would rather be judged by what we actually ship and how well it&nbsp;lasts.</p>
+        </div>
+    </div>
+  </div>
+</section>
+<!-- WHAT WE BUILD -->
+<section id="ventures" style="padding:clamp(70px,9vw,120px) clamp(24px,6vw,80px);background:linear-gradient(180deg,#F3EDE1,#E9DFCC);color:#1B1206">
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-reveal="" style="max-width:760px;margin-bottom:clamp(60px,8vw,110px)">
+      <div style="display:flex;align-items:center;gap:14px;color:rgba(27,18,6,.55);font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:26px">
+        <span style="width:26px;height:1px;background:rgba(27,18,6,.4)"></span>02 · What We Do</div>
+      <h2 style="font-family: 'Space Grotesk',sans-serif; font-weight: 500; font-size: clamp(30px,4.6vw,64px); line-height: 0.9; letter-spacing: -.025em; color: #1B1206;text-wrap:balance">Not a list of services.<br>An ecosystem.</h2>
+      <p style="margin-top: 26px; font-size: clamp(16px,1.5vw,19px); line-height: 1.4; color: rgba(27,18,6,.7); max-width: 56ch">Each of these is simply a different expression of the same mindset: curiosity,<br>put to&nbsp;work.</p>
+    </div>
+
+    <!-- 01 Science Experiences -->
+    <div data-reveal="" class="gm-r-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;padding:clamp(40px,5vw,64px) 0;border-top:1px solid rgba(27,18,6,.12)">
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#6E5AA6;letter-spacing:.1em;margin-bottom:18px">/ 01</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3.2vw,44px);line-height:1.05;letter-spacing:-.02em;color:#1B1206;text-wrap:balance">Science Experiences</h3>
+        <p style="margin-top: 20px; font-size: clamp(15px,1.4vw,18px); line-height: 1.4; color: rgba(27,18,6,.72); max-width: 48ch">We turn complex science into experiences people actually remember, from interactive science centres to immersive simulations and installations that make an abstract idea suddenly feel&nbsp;real.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px">
+          <span style="font-size:12.5px;color:#6E5AA6;border:1px solid rgba(110,90,166,.5);padding:6px 13px;border-radius:100px">Fluid dynamics</span>
+          <span style="font-size:12.5px;color:#6E5AA6;border:1px solid rgba(110,90,166,.5);padding:6px 13px;border-radius:100px">Physics &amp; water</span>
+          <span style="font-size:12.5px;color:#6E5AA6;border:1px solid rgba(110,90,166,.5);padding:6px 13px;border-radius:100px">Aviation</span>
+          <span style="font-size:12.5px;color:#6E5AA6;border:1px solid rgba(110,90,166,.5);padding:6px 13px;border-radius:100px">Human anatomy</span>
+          <span style="font-size:12.5px;color:#6E5AA6;border:1px solid rgba(110,90,166,.5);padding:6px 13px;border-radius:100px">Museum experiences</span>
+        </div>
+      </div>
+      <div class="gm-pile" data-pile="" style="position:relative;min-height:clamp(400px,44vw,540px);perspective:1500px">
+        <figure class="gm-photo" data-rot="-15" data-x="-128" data-y="46" data-z="1" style="width:clamp(150px,40%,220px);aspect-ratio:4/5;transform:translate(-50%,-50%) rotate(-15deg) translate(-128px,46px)">
+          <img src="assets/images/science-centre-vision-perception-exhibit.jpg" alt="Vision and perception exhibit wall showing close-up animal and human eyes" title="Görme ve algı sergisi · hayvan ve insan gözleri" width="1600" height="1200" loading="lazy" decoding="async">
+          <figcaption>Vision &amp; Perception</figcaption>
+        </figure>
+        <figure class="gm-photo" data-rot="-10" data-x="-112" data-y="-34" data-z="2" style="width:clamp(185px,52%,300px);aspect-ratio:3/2;transform:translate(-50%,-50%) rotate(-10deg) translate(-112px,-34px)">
+          <img src="assets/images/interactive-science-centre-water-exhibit.jpg" alt="Interactive water and drought science exhibit at a science centre" title="Bilim merkezi su ve kuraklık sergisi · interaktif deneyim" width="1600" height="1200" loading="lazy" decoding="async">
+          <figcaption>Water &amp; Drought</figcaption>
+        </figure>
+        <figure class="gm-photo" data-rot="13" data-x="128" data-y="54" data-z="3" style="width:clamp(185px,52%,300px);aspect-ratio:3/2;transform:translate(-50%,-50%) rotate(13deg) translate(128px,54px)">
+          <img src="assets/images/industrial-heritage-museum-exhibition.jpg" alt="Industrial heritage museum exhibition with historical machinery and a timeline" title="Endüstriyel miras müzesi sergisi · tarihi makineler" width="1600" height="1200" loading="lazy" decoding="async">
+          <figcaption>Industrial Heritage</figcaption>
+        </figure>
+        <figure class="gm-photo" data-rot="9" data-x="120" data-y="-46" data-z="4" style="width:clamp(175px,48%,282px);aspect-ratio:4/3;transform:translate(-50%,-50%) rotate(9deg) translate(120px,-46px)">
+          <img src="assets/images/science-museum-space-astronomy-exhibit.jpg" alt="Space and astronomy hall with an Earth globe and gravity-well exhibit" title="Uzay ve astronomi sergisi · dünya küresi ve yerçekimi kuyusu" width="1600" height="1200" loading="lazy" decoding="async">
+          <figcaption>Space &amp; Astronomy</figcaption>
+        </figure>
+        <figure class="gm-photo" data-rot="6" data-x="20" data-y="-74" data-z="5" style="width:clamp(175px,48%,278px);aspect-ratio:16/10;transform:translate(-50%,-50%) rotate(6deg) translate(20px,-74px)">
+          <img src="assets/images/airplane-park-science-centre-aircraft.jpg" alt="Airplane park science centre with a red and white aircraft exhibit" title="Uçak parkı bilim merkezi · uçak sergisi" width="1600" height="900" loading="lazy" decoding="async">
+          <figcaption>Aviation</figcaption>
+        </figure>
+        <figure class="gm-photo" data-rot="-4" data-x="-6" data-y="82" data-z="6" style="width:clamp(180px,50%,292px);aspect-ratio:5/4;transform:translate(-50%,-50%) rotate(-4deg) translate(-6px,82px)">
+          <img src="assets/images/interactive-science-sound-acoustics-exhibit.jpg" alt="Interactive sound and acoustics exhibit with a tuned tube instrument" title="Ses ve akustik sergisi · interaktif deney düzeneği" width="1600" height="1200" loading="lazy" decoding="async">
+          <figcaption>Sound &amp; Acoustics</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 03 Artificial Intelligence -->
+    <div data-reveal="" class="gm-r-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;padding:clamp(40px,5vw,64px) 0;border-top:1px solid rgba(27,18,6,.12)">
+      <div style="position:relative;aspect-ratio:5/4;border-radius:16px;overflow:hidden;order:-1">
+        <img src="assets/images/good-monkeys-ai-innovation-lab.jpg" alt="2W Studio AI innovation lab with workflow diagrams and an analytics dashboard" title="2W Studio yapay zeka inovasyon laboratuvarı — özel yazılım ve otomasyon" width="1408" height="768" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#5F7A2A;letter-spacing:.1em;margin-bottom:18px">/ 02</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3.2vw,44px);line-height:1.05;letter-spacing:-.02em;color:#1B1206;text-wrap:balance">Artificial Intelligence</h3>
+        <p style="margin-top: 20px; font-size: clamp(15px,1.4vw,18px); line-height: 1.4; color: rgba(27,18,6,.72); max-width: 48ch">We don't reach for artificial intelligence simply because it is fashionable. We use it in the specific places where it removes real friction and creates genuine value for the people&nbsp;involved.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px">
+          <span style="font-size:12.5px;color:#5F7A2A;border:1px solid rgba(95,122,42,.5);padding:6px 13px;border-radius:100px">Custom tools</span>
+          <span style="font-size:12.5px;color:#5F7A2A;border:1px solid rgba(95,122,42,.5);padding:6px 13px;border-radius:100px">Automation</span>
+          <span style="font-size:12.5px;color:#5F7A2A;border:1px solid rgba(95,122,42,.5);padding:6px 13px;border-radius:100px">Internal systems</span>
+          <span style="font-size:12.5px;color:#5F7A2A;border:1px solid rgba(95,122,42,.5);padding:6px 13px;border-radius:100px">Decision support</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 General Trading -->
+    <div data-reveal="" class="gm-r-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;padding:clamp(40px,5vw,64px) 0;border-top:1px solid rgba(27,18,6,.12)">
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#A96A22;letter-spacing:.1em;margin-bottom:18px">/ 03</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3.2vw,44px);line-height:1.05;letter-spacing:-.02em;color:#1B1206;text-wrap:balance">General Trading</h3>
+        <p style="margin-top: 20px; font-size: clamp(15px,1.4vw,18px); line-height: 1.4; color: rgba(27,18,6,.72); max-width: 48ch">This has never really been about selling products; it is about solving sourcing problems. When someone needs something that is genuinely hard to find, there is a good chance that someone in our network already knows exactly where to&nbsp;look.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px">
+          <span style="font-size:12.5px;color:#A96A22;border:1px solid rgba(169,106,34,.5);padding:6px 13px;border-radius:100px">People</span>
+          <span style="font-size:12.5px;color:#A96A22;border:1px solid rgba(169,106,34,.5);padding:6px 13px;border-radius:100px">Products</span>
+          <span style="font-size:12.5px;color:#A96A22;border:1px solid rgba(169,106,34,.5);padding:6px 13px;border-radius:100px">Industries</span>
+          <span style="font-size:12.5px;color:#A96A22;border:1px solid rgba(169,106,34,.5);padding:6px 13px;border-radius:100px">Countries</span>
+        </div>
+      </div>
+      <div style="position:relative;aspect-ratio:5/4;border-radius:16px;overflow:hidden">
+        <img src="assets/images/global-trading-sourcing-network.jpg" alt="Global trading and sourcing network connecting cities across the world" title="Küresel ticaret ve tedarik ağı — dünya çapında bağlantılar" width="1408" height="768" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+    </div>
+
+    <!-- 05 Adventure -->
+    <div data-reveal="" class="gm-r-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;padding:clamp(40px,5vw,64px) 0;border-top:1px solid rgba(27,18,6,.12)">
+      <div style="position:relative;aspect-ratio:5/4;border-radius:16px;overflow:hidden;order:-1">
+        <img src="assets/images/paragliding-adventure-oludeniz.jpg" alt="Colourful paragliders soaring over a coastline and blue lagoon" title="Yamaç paraşütü macerası — Ölüdeniz sahili" width="1376" height="768" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:rgba(27,18,6,.55);letter-spacing:.1em;margin-bottom:18px">/ 04</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3.2vw,44px);line-height:1.05;letter-spacing:-.02em;color:#1B1206;text-wrap:balance">Adventure</h3>
+        <p style="margin-top: 20px; font-size: clamp(15px,1.4vw,18px); line-height: 1.4; color: rgba(27,18,6,.72); max-width: 48ch">Our curiosity doesn't stop the moment we step outside. Paragliding, expeditions and outdoor projects are part of how we stay close to the world we are trying to understand, and a reminder that movement, exploration and freedom matter to us&nbsp;too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- FEATURED PROJECTS -->
+<section id="projects" style="padding: clamp(90px,12vw,170px) clamp(24px,6vw,80px); border-top: 1px solid rgba(243,237,225,.09); position: static; display: flex; height: 1655px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-reveal="" style="max-width:760px;margin-bottom:clamp(56px,7vw,96px)">
+      <div style="display:flex;align-items:center;gap:14px;color:rgba(242,217,138,.9);font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:26px">
+        <span style="width:26px;height:1px;background:rgba(242,217,138,.7)"></span>03 · Featured Projects</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(30px,4.6vw,64px);line-height:.95;letter-spacing:-.025em;text-wrap:balance">Two mobile apps,<br>almost ready.</h2>
+      <p style="margin-top: 26px; font-size: clamp(16px,1.5vw,19px); line-height: 1.4; color: rgba(243,237,225,.66); max-width: 56ch">We have spent a while quietly building our first two mobile apps for iOS and Android. Both are now approaching launch, and both are being made with the same care we would want as users&nbsp;ourselves.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.6vw,32px)">
+      <div data-reveal="" style="display:flex;flex-direction:column;border-radius:20px;overflow:hidden;border:1px solid rgba(243,237,225,.12);background:radial-gradient(120% 90% at 85% 0%,rgba(242,217,138,.14),transparent 60%),#1B120B;position:relative;cursor:pointer">
+        <a href="https://marklings.com" target="_blank" rel="noopener" aria-label="Open the Marklings website" style="position:absolute;inset:0;z-index:3"></a>
+        <div style="position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid rgba(243,237,225,.1)">
+          <img src="assets/images/marklings-ai-translation-app.jpg" alt="Marklings logo — an AI-powered translation app by 2W Studio" title="Marklings — yapay zeka destekli çeviri uygulaması" width="1337" height="784" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div style="padding:28px 30px 32px;display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,2.6vw,32px);letter-spacing:-.01em">Marklings</span>
+            <span style="font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #170F09; padding: 6px 12px; border-radius: 100px; white-space: nowrap; background-color: #F2D98A">Launching Soon</span>
+          </div>
+          <p style="font-size: 15.5px; line-height: 1.4; color: rgba(243,237,225,.7)">An AI-powered translation app that lets you mark, capture and save the language you need, exactly when you need&nbsp;it.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="font-size:12.5px;color:rgba(242,217,138,.95);border:1px solid rgba(242,217,138,.35);padding:6px 13px;border-radius:100px">iOS &amp; Android</span><span style="font-size:12.5px;color:rgba(242,217,138,.95);border:1px solid rgba(242,217,138,.35);padding:6px 13px;border-radius:100px">Translation</span><span style="font-size:12.5px;color:rgba(242,217,138,.95);border:1px solid rgba(242,217,138,.35);padding:6px 13px;border-radius:100px">Capture</span><span style="font-size:12.5px;color:rgba(242,217,138,.95);border:1px solid rgba(242,217,138,.35);padding:6px 13px;border-radius:100px">On-device</span></div>
+          <div style="margin-top:2px;font-size:13.5px;color:rgba(242,217,138,.95);display:inline-flex;align-items:center;gap:6px;position:relative;z-index:2;pointer-events:none">Visit marklings.com <span aria-hidden="true">↗</span></div>
+        </div>
+      </div>
+      <div data-reveal="" style="display:flex;flex-direction:column;border-radius:20px;overflow:hidden;border:1px solid rgba(243,237,225,.12);background:radial-gradient(120% 90% at 85% 0%,rgba(232,168,121,.16),transparent 60%),#1B120B">
+        <div style="position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid rgba(243,237,225,.1)">
+          <img src="assets/images/flick-social-app-real-connection.jpg" alt="Person using the Flick! Social app with friends together in a cafe" title="Flick! Social — gerçek hayatta yüz yüze sosyal bağlantı uygulaması" width="1376" height="768" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div style="padding:28px 30px 32px;display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,2.6vw,32px);letter-spacing:-.01em">Flick! Social</span>
+            <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#170F09;padding:6px 12px;border-radius:100px;background:#E8A879;white-space:nowrap">Launching Soon</span>
+          </div>
+          <p style="font-size: 15.5px; line-height: 1.4; color: rgba(243,237,225,.7)">A social app built around genuine human interaction, where connections are unlocked in person through a physical key rather than an endless feed — bringing people together in the real world&nbsp;first.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="font-size:12.5px;color:rgba(232,168,121,.95);border:1px solid rgba(232,168,121,.35);padding:6px 13px;border-radius:100px">iOS &amp; Android</span><span style="font-size:12.5px;color:rgba(232,168,121,.95);border:1px solid rgba(232,168,121,.35);padding:6px 13px;border-radius:100px">Social</span><span style="font-size:12.5px;color:rgba(232,168,121,.95);border:1px solid rgba(232,168,121,.35);padding:6px 13px;border-radius:100px">Real connection</span><span style="font-size:12.5px;color:rgba(232,168,121,.95);border:1px solid rgba(232,168,121,.35);padding:6px 13px;border-radius:100px">Community</span></div>
+        </div>
+      </div>
+
+      <div data-reveal="" style="grid-column:1 / -1;position:relative;overflow:hidden;border-radius:20px;border:1px solid rgba(195,209,138,.28);background:radial-gradient(120% 160% at 12% 0%,rgba(195,209,138,.16),transparent 55%),radial-gradient(120% 160% at 100% 120%,rgba(242,217,138,.14),transparent 55%),#1B120B;padding:clamp(30px,4vw,52px)">
+        <img src="assets/logomark-cream.svg" alt="" aria-hidden="true" style="position:absolute;right:-30px;bottom:-46px;width:230px;height:auto;opacity:.06;transform:rotate(-8deg);pointer-events:none">
+        <div style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#170F09;background:#C3D866;padding:7px 14px;border-radius:100px;margin-bottom:24px">Always Open · The Odd Requests Desk</div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(28px,3.6vw,48px);line-height:1;letter-spacing:-.025em;text-wrap:balance">Got a strange one? That's usually where the fun starts.</h3>
+            <p style="margin-top: 22px; font-size: clamp(15px,1.5vw,18px); line-height: 1.4; color: rgba(243,237,225,.7); max-width: 50ch">Not every project fits into a neat category, and honestly those are the ones we enjoy most. Clients bring us the unusual, the hard-to-find and the slightly impossible, and more often than not we already know how to make it happen.</p>
+            <a href="mailto:info@2wstudio.com?subject=An%20odd%20request" style="display:inline-flex;align-items:center;gap:10px;margin-top:30px;padding:15px 28px;border-radius:100px;background:#C3D866;color:#1E2A08;font-weight:500;font-size:15px">Bring us your weirdest idea <span>→</span></a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid rgba(243,237,225,.14);border-radius:14px;background:rgba(243,237,225,.03)"><span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:rgba(195,209,138,.9)">01</span><span style="font-size:15px;color:rgba(243,237,225,.82)">“Can you source 300 vintage typewriters by spring?”</span></div>
+            <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid rgba(243,237,225,.14);border-radius:14px;background:rgba(243,237,225,.03)"><span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:rgba(242,217,138,.9)">02</span><span style="font-size:15px;color:rgba(243,237,225,.82)">“We need a walk-through model of a human heart.”</span></div>
+            <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid rgba(243,237,225,.14);border-radius:14px;background:rgba(243,237,225,.03)"><span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:rgba(232,168,121,.9)">03</span><span style="font-size:15px;color:rgba(243,237,225,.82)">“Find someone who can fly us over a volcano.”</span></div>
+            <div style="font-size:13px;color:rgba(243,237,225,.45);padding-left:6px;margin-top:4px">…and yes, we've had stranger.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach" style="position:relative;z-index:2;margin-top:0;margin-bottom:clamp(-150px,-11vw,-70px);background:transparent">
+  <div style="position: relative; -webkit-mask: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271200%27%20height%3D%27420%27%20viewBox%3D%270%200%201200%20420%27%20preserveAspectRatio%3D%27none%27%3E%3Cdefs%3E%3Cfilter%20id%3D%27r%27%20x%3D%27-2%25%27%20y%3D%27-20%25%27%20width%3D%27104%25%27%20height%3D%27140%25%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.006%200.024%27%20numOctaves%3D%274%27%20seed%3D%2711%27%20result%3D%27n%27%2F%3E%3CfeDisplacementMap%20in%3D%27SourceGraphic%27%20in2%3D%27n%27%20scale%3D%2734%27%20xChannelSelector%3D%27R%27%20yChannelSelector%3D%27G%27%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Crect%20x%3D%27-60%27%20y%3D%2730%27%20width%3D%271320%27%20height%3D%27360%27%20fill%3D%27%23fff%27%20filter%3D%27url(%23r)%27%2F%3E%3C%2Fsvg%3E') center/100% 100% no-repeat; mask: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271200%27%20height%3D%27420%27%20viewBox%3D%270%200%201200%20420%27%20preserveAspectRatio%3D%27none%27%3E%3Cdefs%3E%3Cfilter%20id%3D%27r%27%20x%3D%27-2%25%27%20y%3D%27-20%25%27%20width%3D%27104%25%27%20height%3D%27140%25%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.006%200.024%27%20numOctaves%3D%274%27%20seed%3D%2711%27%20result%3D%27n%27%2F%3E%3CfeDisplacementMap%20in%3D%27SourceGraphic%27%20in2%3D%27n%27%20scale%3D%2734%27%20xChannelSelector%3D%27R%27%20yChannelSelector%3D%27G%27%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Crect%20x%3D%27-60%27%20y%3D%2730%27%20width%3D%271320%27%20height%3D%27360%27%20fill%3D%27%23fff%27%20filter%3D%27url(%23r)%27%2F%3E%3C%2Fsvg%3E') center/100% 100% no-repeat; background: linear-gradient(158deg,#D3C9EC 0%,#C0B4E2 52%,#B1A3D8 100%); padding: clamp(96px,12vw,150px) clamp(24px,6vw,80px); height: 585px">
+    <div data-reveal="" style="max-width:1120px;margin:0 auto;text-align:center">
+      <div style="display: inline-flex; align-items: center; gap: 14px; color: #26190F; font-size: 12.5px; letter-spacing: .26em; text-transform: uppercase; margin-bottom: 34px">
+        <span style="width: 26px; height: 1px; background-color: #F2D98A"></span>04 · How We Work<span style="width: 26px; height: 1px; background-color: #F2D98A"></span></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 22px;color:#26190F;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,3.6vw,50px);line-height:1.16;letter-spacing:-.02em">
+        <span style="color: #26190F">Curiosity</span><span style="color: #F2D98A; font-weight: 400">→</span>
+        <span>Questions</span><span style="color: #F2D98A; font-weight: 400">→</span>
+        <span>Ideas</span><span style="color: #F2D98A; font-weight: 400">→</span>
+        <span>Vision</span><span style="color: #F2D98A; font-weight: 400">→</span>
+        <span>Products</span><span style="color: #F2D98A; font-weight: 400">→</span>
+        <span>Businesses</span><span style="color: #F2D98A; font-weight: 400">→</span>
+        <span style="color: #F2D98A">Opportunities</span>
+      </div>
+      <p style="margin:44px auto 0;font-size:clamp(16px,1.6vw,20px);line-height:1.4;color:rgba(38,25,15,.72);max-width:46ch">Every new opportunity raises a fresh set of questions, and from there we simply begin again. For us, everything genuinely starts with&nbsp;curiosity.</p>
+    </div>
+  </div>
+</section><!-- SHAPE THE JUNGLE / MANIFESTO -->
+<section style="position:relative;padding:clamp(120px,16vw,240px) clamp(24px,6vw,80px);overflow:hidden;background:radial-gradient(130% 120% at 50% 50%,#2A1D12 0%,#160E08 72%);border-top:1px solid rgba(243,237,225,.09)" data-comment-anchor="4d0f02e792-section">
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none">
+    <div style="position:absolute;top:8%;left:-6%;width:44vw;height:44vw;border-radius:50%;background:radial-gradient(circle,rgba(242,217,138,.16),transparent 62%);filter:blur(70px);animation:gm-float-b 26s ease-in-out infinite"></div>
+    <div style="position:absolute;bottom:-4%;right:-4%;width:40vw;height:40vw;border-radius:50%;background:radial-gradient(circle,rgba(201,191,230,.16),transparent 62%);filter:blur(70px);animation:gm-float-a 30s ease-in-out infinite"></div>
+  </div>
+
+  <div style="position:relative;max-width:1240px;margin:0 auto">
+    <div data-reveal="" style="display:flex;align-items:center;gap:14px;justify-content:center;color:rgba(195,209,138,.9);font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:clamp(40px,5vw,64px)">
+      <span style="width:26px;height:1px;background:rgba(195,209,138,.7)"></span>Our Manifesto<span style="width:26px;height:1px;background:rgba(195,209,138,.7)"></span></div>
+
+    <h2 data-reveal="" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(46px,10vw,148px);line-height:1.02;letter-spacing:-.045em;text-align:center;color:rgba(243,237,225,.94);margin:0;text-wrap:balance">
+      Business is a
+      <span style="font-style:italic;font-weight:500;background:linear-gradient(100deg,#C3D866,#F2D98A);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;padding:0 .06em">jungle</span>&nbsp;—<br>
+      we're here to
+      <span style="white-space:nowrap"><span style="background:linear-gradient(100deg,#F2D98A,#EFE6D3 45%,#C9BFE6);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;padding:0 .04em">shape</span>&nbsp;it.</span>
+    </h2>
+
+    <div data-reveal="" style="max-width:880px;margin:clamp(60px,8vw,104px) auto 0;display:grid;gap:0">
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(16px,3vw,44px);align-items:baseline;padding:clamp(20px,2.4vw,30px) 0;border-top:1px solid rgba(243,237,225,.14)">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(18px,2.4vw,30px);line-height:1.1;letter-spacing:-.02em;color:rgba(243,237,225,.38);text-align:right">Some wait for certainty.</span>
+        <span style="color:rgba(195,209,138,.85);font-size:clamp(16px,2vw,26px);transform:translateY(-1px)">→</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(18px,2.4vw,30px);line-height:1.1;letter-spacing:-.02em;color:#F3EDE1">We start with curiosity.</span>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(16px,3vw,44px);align-items:baseline;padding:clamp(20px,2.4vw,30px) 0;border-top:1px solid rgba(243,237,225,.14)">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(18px,2.4vw,30px);line-height:1.1;letter-spacing:-.02em;color:rgba(243,237,225,.38);text-align:right">Some wait for opportunity.</span>
+        <span style="color:rgba(242,217,138,.85);font-size:clamp(16px,2vw,26px);transform:translateY(-1px)">→</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(18px,2.4vw,30px);line-height:1.1;letter-spacing:-.02em;color:#F3EDE1">We create it.</span>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(16px,3vw,44px);align-items:baseline;padding:clamp(20px,2.4vw,30px) 0;border-top:1px solid rgba(243,237,225,.14);border-bottom:1px solid rgba(243,237,225,.14)">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(18px,2.4vw,30px);line-height:1.1;letter-spacing:-.02em;color:rgba(243,237,225,.38);text-align:right">Some follow the path.</span>
+        <span style="color:rgba(201,191,230,.85);font-size:clamp(16px,2vw,26px);transform:translateY(-1px)">→</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(18px,2.4vw,30px);line-height:1.1;letter-spacing:-.02em;color:#F3EDE1">We make our own.</span>
+      </div>
+    </div>
+
+    <p data-reveal="" style="max-width: 52ch; margin: clamp(52px,6vw,80px) auto 0; text-align: center; font-size: clamp(16px,1.6vw,20px); line-height: 1.4; color: rgba(243,237,225,.6)">A jungle rewards the curious, the adaptable and the fearless. We navigate it the same way we approach every venture — by turning wild, tangled possibility into something with a clear shape and a real&nbsp;future.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding:clamp(90px,12vw,170px) clamp(24px,6vw,80px);background:linear-gradient(180deg,#F3EDE1,#E9DFCC);color:#170F09">
+  <div style="display:flex;align-items:center;gap:14px;color:rgba(23,15,9,.55);font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:28px">
+        <span style="width:26px;height:1px;background:rgba(23,15,9,.4)"></span>05 · Contact</div><div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,7vw,110px);align-items:start">
+    <div data-reveal="" style="position: relative">
+      
+      <h2 style="font-family: 'Space Grotesk',sans-serif; font-weight: 500; font-size: clamp(32px,4.8vw,68px); line-height: 1.02; letter-spacing: -.03em; color: #170F09; position: relative;text-wrap:balance">The shortest path is knowing the right people.</h2>
+      <p style="margin-top: 28px; font-size: clamp(16px,1.5vw,19px); line-height: 1.4; color: rgba(23,15,9,.66); max-width: 44ch">Tell us what you're trying to create, solve or find. If we can't help you directly, there is a very good chance we know exactly the person who&nbsp;can.</p>
+      <div style="margin-top:44px;display:flex;flex-direction:column;gap:20px">
+        <a href="mailto:info@2wstudio.com" style="display: inline-flex; align-items: center; gap: 14px; font-family: 'Space Grotesk',sans-serif; font-size: clamp(18px,2vw,26px); color: #170F09; padding-left: 0px; padding-right: 0px">
+          <img src="assets/logomark-ink.svg" alt="" aria-hidden="true" style="height: 46px; width: 42px; flex: none">info@2wstudio.com</a>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="https://instagram.com/2wstudio" style="padding:10px 18px;border:1px solid rgba(23,15,9,.22);border-radius:100px;font-size:14px;color:rgba(23,15,9,.82)">Instagram — @2wstudio</a>
+          <a href="https://x.com/2wstudio" style="padding:10px 18px;border:1px solid rgba(23,15,9,.22);border-radius:100px;font-size:14px;color:rgba(23,15,9,.82)">X — @2wstudio</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;color:rgba(23,15,9,.5);font-size:14px;margin-top:6px">
+          <span style="color:#C77D3E">●</span>Based in Dubai, working everywhere.</div>
+      </div>
+    </div><form data-reveal="" style="display:flex;flex-direction:column;gap:20px;border:1px solid rgba(243,237,225,.12);border-radius:20px;padding:clamp(26px,3vw,40px);background:#1B120B">
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <label style="font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: #EFE7D880; font-weight: 600">Your name</label>
+        <input type="text" id="cf-name" name="name" autocomplete="name" required placeholder="John Smith" style="background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,.22);padding:11px 2px;font-size:16px;outline:none">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <label style="font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,237,225,.5); font-weight: 600">Email</label>
+        <input type="email" id="cf-email" name="email" autocomplete="email" required placeholder="you@company.com" style="background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,.22);padding:11px 2px;font-size:16px;outline:none">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 9px; position: relative">
+        <label style="font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,237,225,.5); font-weight: 600">The problem worth solving</label><textarea rows="3" id="cf-message" name="message" placeholder="Tell us what you're chasing..." style="background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,.22);padding:11px 2px;font-size:16px;outline:none;resize:none"></textarea>
+        
+      </div>
+      <button type="submit" style="margin-top:10px;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border:none;border-radius:100px;background:#C3D866;color:#1E2A08;font-weight:500;font-size:15px;cursor:pointer">Send it our way <span>→</span></button>
+    </form>
+
+    
+  </div>
+</section><footer style="padding:clamp(70px,9vw,120px) clamp(24px,6vw,80px) 60px;border-top:1px solid rgba(243,237,225,.09);text-align:center;background:radial-gradient(120% 120% at 50% 120%,#221710,#150E08)">
+  <img src="assets/logo-primary-cream.svg" alt="2W Studio" style="width: min(560px,80vw); height: auto; margin: 0 auto; display: block; opacity: .92; padding-bottom: 40px">
+  
+  
+  <div style="font-family: 'Space Grotesk',sans-serif; font-weight: 500; font-size: clamp(20px,2.4vw,32px); letter-spacing: 0.02em; line-height: 1; padding-top: 5px; padding-bottom: 5px">New Gen - Venture Studio</div><p style="font-size: 15px; color: rgba(243,237,225,.55); line-height: 1.2">Curiosity never stands still. Neither do&nbsp;we.</p><div style="margin-top:50px;padding-top:26px;border-top:1px solid rgba(243,237,225,.08);display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;font-size:13px;color:rgba(243,237,225,.42)">
+    <span>© 2026 · 2W Studio — a brand of Good Monkeys L.L.C-FZ</span><span>·</span>
+    <a href="mailto:info@2wstudio.com" style="color:rgba(243,237,225,.55)">info@2wstudio.com</a><span>·</span>
+    <span>Meydan FZ - Dubai, UAE</span>
+  </div>
+</footer>
+
+<!-- FOOTER -->
+
+
+</div>
+
+<script>
+(function () {
+  function init() {
+    // Reveal-on-scroll: only hide elements below the fold.
+    var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    var vh = window.innerHeight;
+    els.forEach(function (el) {
+      el.style.transition = 'opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1)';
+      el.style.willChange = 'opacity, transform';
+      var r = el.getBoundingClientRect();
+      if (r.top > vh * 0.88) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+      }
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+
+    // Nav background on scroll.
+    var nav = document.querySelector('[data-nav]');
+    var onScroll = function () {
+      if (!nav) return;
+      if (window.scrollY > 40) {
+        nav.style.background = 'rgba(21,14,8,.72)';
+        nav.style.backdropFilter = 'blur(14px)';
+        nav.style.webkitBackdropFilter = 'blur(14px)';
+        nav.style.borderBottomColor = 'rgba(243,237,225,.1)';
+        nav.style.paddingTop = '14px';
+        nav.style.paddingBottom = '14px';
+      } else {
+        nav.style.background = 'transparent';
+        nav.style.backdropFilter = 'none';
+        nav.style.webkitBackdropFilter = 'none';
+        nav.style.borderBottomColor = 'transparent';
+        nav.style.paddingTop = '22px';
+        nav.style.paddingBottom = '22px';
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Background video: only play while Hero/Studio are on screen (saves
+    // battery/CPU); honour reduced-motion by holding a still frame.
+    var bgv = document.querySelector('.gm-bgvideo');
+    if (bgv) {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        bgv.removeAttribute('autoplay');
+        bgv.pause();
+      } else {
+        var vzones = ['#top', '#studio'].map(function (s) { return document.querySelector(s); }).filter(Boolean);
+        var vvis = [];
+        var vio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            var i = vvis.indexOf(e.target);
+            if (e.isIntersecting && i === -1) vvis.push(e.target);
+            else if (!e.isIntersecting && i !== -1) vvis.splice(i, 1);
+          });
+          if (vvis.length) { var p = bgv.play(); if (p && p.catch) p.catch(function () {}); }
+          else { bgv.pause(); }
+        }, { threshold: 0 });
+        vzones.forEach(function (el) { vio.observe(el); });
+      }
+    }
+
+    // Science Experiences: a pile of photos thrown on a table. Hover any photo
+    // to straighten it and bring it forward while the rest scatter away; move
+    // between photos to reshuffle; leave the area and the pile restacks.
+    var pile = document.querySelector('[data-pile]');
+    if (pile) {
+      var photos = Array.prototype.slice.call(pile.querySelectorAll('.gm-photo'));
+      var reduceP = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var base = function (c) {
+        return 'translate(-50%,-50%) rotate(' + c.dataset.rot + 'deg) translate(' + c.dataset.x + 'px,' + c.dataset.y + 'px)';
+      };
+      photos.forEach(function (c) { c.style.zIndex = c.dataset.z || '1'; });
+      var reset = function () {
+        photos.forEach(function (c) {
+          c.style.transform = base(c);
+          c.style.opacity = '1';
+          c.style.filter = 'none';
+          c.style.zIndex = c.dataset.z || '1';
+          c.style.boxShadow = '';
+        });
+      };
+      // Desktop (hover): straighten + enlarge the hovered photo and scatter the rest.
+      var focusDesktop = function (card) {
+        var ax = parseFloat(card.dataset.x), ay = parseFloat(card.dataset.y);
+        photos.forEach(function (c) {
+          if (c === card) {
+            c.style.zIndex = '60';
+            c.style.transform = 'translate(-50%,-50%) rotate(0deg) scale(1.5)';
+            c.style.opacity = '1';
+            c.style.filter = 'none';
+            c.style.boxShadow = '0 4px 8px rgba(20,12,4,.34),0 46px 76px -24px rgba(20,12,4,.7)';
+          } else {
+            var cx = parseFloat(c.dataset.x), cy = parseFloat(c.dataset.y);
+            var dx = (cx - ax) || (Math.random() * 2 - 1);
+            var dy = (cy - ay) || (Math.random() * 2 - 1);
+            var len = Math.hypot(dx, dy) || 1;
+            var push = 300;
+            var ox = cx + (dx / len) * push, oy = cy + (dy / len) * push;
+            c.style.transform = 'translate(-50%,-50%) rotate(' + c.dataset.rot + 'deg) translate(' + ox + 'px,' + oy + 'px) scale(.8)';
+            c.style.opacity = '0';
+            c.style.filter = 'blur(3px)';
+          }
+        });
+      };
+
+      // Touch: bring the tapped photo to the front (centred, straightened); the
+      // others stay in place, dimmed but still tappable so you can switch photos.
+      var focusTouch = function (card) {
+        photos.forEach(function (c) {
+          if (c === card) {
+            c.style.zIndex = '60';
+            c.style.transform = 'translate(-50%,-50%) rotate(0deg) scale(1.22)';
+            c.style.opacity = '1';
+            c.style.filter = 'none';
+            c.style.boxShadow = '0 4px 8px rgba(20,12,4,.34),0 40px 66px -24px rgba(20,12,4,.68)';
+          } else {
+            c.style.transform = base(c);
+            c.style.opacity = '.4';
+            c.style.filter = 'none';
+            c.style.zIndex = c.dataset.z || '1';
+            c.style.boxShadow = '';
+          }
+        });
+      };
+
+      if (!reduceP) {
+        var hoverCapable = window.matchMedia
+          ? !window.matchMedia('(hover: none)').matches
+          : !('ontouchstart' in window);
+
+        if (hoverCapable) {
+          photos.forEach(function (card) {
+            card.addEventListener('mouseenter', function () { focusDesktop(card); });
+          });
+          pile.addEventListener('mouseleave', reset);
+        } else {
+          // Tap to focus, tap again (or tap outside) to restack, tap another to switch.
+          var active = null;
+          photos.forEach(function (card) {
+            card.addEventListener('click', function (e) {
+              e.stopPropagation();
+              if (active === card) { active = null; reset(); }
+              else { active = card; focusTouch(card); }
+            });
+          });
+          document.addEventListener('click', function (e) {
+            if (active && !pile.contains(e.target)) { active = null; reset(); }
+          });
+        }
+      }
+    }
+
+    // Contact form: real submission to the /api/contact serverless function
+    // (stores name/email/message in Supabase). Shows inline status.
+    var form = document.querySelector('#contact form');
+    if (form) {
+      var status = document.createElement('p');
+      status.setAttribute('role', 'status');
+      status.style.cssText = 'margin-top:14px;font-size:14px;line-height:1.5';
+      form.appendChild(status);
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type=submit]');
+        var name = (document.getElementById('cf-name') || {}).value || '';
+        var email = (document.getElementById('cf-email') || {}).value || '';
+        var message = (document.getElementById('cf-message') || {}).value || '';
+        if (!name.trim() || !email.trim()) {
+          status.style.color = 'rgba(243,237,225,.72)';
+          status.textContent = 'Please add your name and email.';
+          return;
+        }
+        var original = btn ? btn.innerHTML : '';
+        if (btn) { btn.disabled = true; btn.style.opacity = '.75'; btn.textContent = 'Sending…'; }
+        status.textContent = '';
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name.trim(), email: email.trim(), message: message.trim() })
+        }).then(function (r) {
+          if (!r.ok) throw new Error('status ' + r.status);
+          if (btn) { btn.textContent = 'Thanks, we’ll be in touch ✓'; btn.style.background = '#C3D18A'; btn.style.opacity = '1'; }
+          status.style.color = '#C3D866';
+          status.textContent = 'Message sent. We’ll get back to you soon.';
+          form.reset();
+        }).catch(function () {
+          if (btn) { btn.disabled = false; btn.style.opacity = '1'; btn.innerHTML = original; }
+          status.style.color = '#F0A98F';
+          status.innerHTML = 'Couldn’t send right now — please email <a href="mailto:info@2wstudio.com" style="color:inherit;text-decoration:underline">info@2wstudio.com</a>.';
+        });
+      });
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+</body>
+</html>

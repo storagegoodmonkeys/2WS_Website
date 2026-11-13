@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - 2W Studio</title>
+    <meta name="description" content="2W Studio - A venture studio built on agility, grounded in reality.">
+    
+    <link rel="icon" type="image/png" href="assets/logos/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #FF6B35;
+            --dark: #0A0A0A;
+            --dark-light: #141414;
+            --text: #FFFFFF;
+            --text-muted: #888888;
+            --border: #2a2a2a;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 107, 53, 0.02));
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .shape:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            right: -100px;
+        }
+        
+        .shape:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            bottom: 20%;
+            left: -50px;
+            animation-delay: -5s;
+        }
+        
+        .shape:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            right: 20%;
+            animation-delay: -10s;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        
+        .nav-logo img {
+            height: 35px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+        
+        /* Hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        
+        .motto {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 500;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        /* Philosophy */
+        .philosophy {
+            margin-bottom: 60px;
+            padding: 50px 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 107, 53, 0.15);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .philosophy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.5), transparent);
+        }
+        
+        .philosophy::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.3), transparent);
+        }
+        
+        .philosophy-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        
+        .philosophy-stamp {
+            width: 70px;
+            height: 70px;
+            margin: -10px auto 20px;
+        }
+        
+        .philosophy-stamp img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 1;
+        }
+        
+        .philosophy-header h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .philosophy-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .philosophy-item p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            text-align: left;
+        }
+        
+        /* Services */
+        .services {
+            margin-bottom: 60px;
+        }
+        
+        .services-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .service-card {
+            padding: 28px 24px;
+            background: var(--dark-light);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+        
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 14px;
+            margin: 0 auto 20px;
+            color: var(--primary);
+        }
+        
+        .service-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .service-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        /* Power of Done */
+        .power-done {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 107, 53, 0.02));
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .power-done h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+        
+        .power-done p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        /* CTA */
+        .cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            background: #e85a2a;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .footer-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 16px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-email:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            font-size: 13px;
+            color: #555;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .nav {
+                padding: 16px 20px;
+            }
+            
+            .nav-logo img {
+                height: 28px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .nav-links a {
+                font-size: 13px;
+            }
+            
+            .container {
+                padding: 100px 20px 40px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .motto {
+                font-size: 1.1rem;
+            }
+            
+            .philosophy {
+                padding: 24px;
+            }
+            
+            .philosophy-item p {
+                font-size: 0.95rem;
+            }
+            
+            .service-card {
+                padding: 24px;
+            }
+            
+            .service-card h3 {
+                font-size: 1.1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo-primary-cream.svg" alt="2W Studio">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>About Us</h1>
+            <p class="motto">"A venture studio built on agility, grounded in reality. We don't just ideate, we execute whatever the market demands."</p>
+        </div>
+        
+        <!-- Philosophy -->
+        <div class="philosophy">
+            <div class="philosophy-header">
+                <div class="philosophy-stamp">
+                    <img src="assets/logomark-cream.svg" alt="2W">
+                </div>
+                <h3>Our Philosophy</h3>
+            </div>
+            <div class="philosophy-content">
+                <div class="philosophy-item">
+                    <p>At 2W Studio, we believe that the best solution isn't the one that looks most 'perfect' on paper – it's the one that actually works in the real world. We are a multidisciplinary team that thrives in the gap between 'what is' and 'what could be.'</p>
+                </div>
+                <div class="philosophy-item">
+                    <p>We don't limit ourselves to a single industry or a specific craft. Instead, we follow the pulse of the market. Our philosophy is simple: identify a need, find the most efficient path, and deliver results.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Services -->
+        <div class="services">
+            <div class="services-title">What We Do</div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3>Digital Ventures & AI</h3>
+                    <p>Building tools that simplify complexity with cutting-edge technology and AI.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Global Operations & Sourcing</h3>
+                    <p>Bridging the gap with speed and precision in logistics and supply.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Strategic Execution</h3>
+                    <p>Turning ideas into revenue – efficiently and without the fluff.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Power of Done -->
+        <div class="power-done">
+            <h3>The Power of 'Done'</h3>
+            <p>We get a thrill from seeing a task completed and a problem solved. For us, execution is the highest form of creativity.</p>
+        </div>
+        
+        <!-- CTA -->
+        <div class="cta">
+            <a href="index.html" class="cta-btn">Get in Touch</a>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <a href="mailto:info@2wstudio.com" class="footer-email">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                info@2wstudio.com
+            </a>
+            <div class="copyright">© 2026 · 2W Studio — a brand of Good Monkeys L.L.C-FZ</div>
+        </div>
+    </div>
+</body>
+</html>

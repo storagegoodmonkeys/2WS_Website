@@ -1,0 +1,39 @@
+<!-- 
+Easy email integration using EmailJS (no backend required!)
+Free up to 200 emails/month, then $15/month
+
+Steps to set up:
+1. Go to https://www.emailjs.com and sign up (free)
+2. Create an email service (Gmail, Outlook, etc.)
+3. Create an email template
+4. Replace the placeholders below with your EmailJS credentials
+5. Add this script to your main HTML
+-->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+    // Initialize EmailJS with your public key
+    emailjs.init("YOUR_PUBLIC_KEY_HERE");
+    
+    // Modified form submission function
+    document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        
+        // Send email via EmailJS
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+            .then(function(response) {
+                console.log('Email sent successfully:', response.status, response.text);
+                document.getElementById('successModal').style.display = 'block';
+                document.getElementById('waitlistForm').reset();
+            }, function(error) {
+                console.error('Email failed to send:', error);
+                alert('Sorry, there was an error. Please try again later.');
+            });
+    });
+</script>
+
+
